@@ -1,0 +1,6 @@
+in samples, storage accounts have the following fake values: 
+
+storage account name: ul001
+storage key: fRCyNyx1aHeASX1OTXrT8L7m0sMrGuEBrNFy6XghAwNZ3vwMXx5I7w4HluQ2qQrS8Cgy5qBK1YJbhQIWNvOMdw==
+
+NB: that same fake key is also used for other storage accounts in that repo.
