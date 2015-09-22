@@ -12,7 +12,47 @@ Here is a way to create a linux cluster.
 
 The equivalent is available as a PowerShell script in this repo at scripts/powershell/create_hdinsight_cluster_linux.ps1
 
-XXX
+NB: From Azure CLI, there are less options to customize the configuration of the cluster.
+
+go to [http://portal.azure.com](http://portal.azure.com)
+
+![](hdinsight/1.png)
+
+then, you can fill the wizzard with the following values (replace values in *italic* by your own values, some of them like the cluster name must be globally unique). The example values used at creation are reused in this documentation so that you can correlate the fields.
+
+- Cluster Name: *hdi34*
+- Cluster Type: Hadoop
+- Cluster Operating System: Ubuntu 12.04 LTS (PREVIEW)
+- Subscription: *(choose the subscription corresponding to the right PASS subscription)*
+- Resource Group: *(leave default or create a new resource group, not very important here)* 
+- Credentials
+	- Cluster Login Username: admin
+	- Cluster Login Password: *TauTheaux007!*
+	- Confirm Password: *TauTheaux007!*
+	- SSH Username: *john* 
+	- SSH Authentication type: *ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDknV6guL9y/FfIb6MCzVDyRHY5+ZCi9kUfxBlIGoluHwaNshslndhPngxRc6WEhwdGNxhOT2JBh4Ajxhc8Zegzu005W3QdjPRaoEJ3joMGA/k8DpGsu21xirECYphPz7QzDXRM4uMh4ScoqXz5klBrOhpp/pluo6uLxgBk+520m8O4gSxMMNdnaUnGJ3n4gYNaUq+WbHcaAcbdY6gqnDMPvhAOFdDpkYZ5gO/umeWhJ6nPKMznFTaPvxn5l50zeOTbXi6zJGAd724yXK+PYfaWSyaUof/tBFvOZG2U8q+AQfx+SW5IucGAUQuNayKxCtsYjEpECvNvl2rGwyzwUQUF john@3-4.fr*
+- Data Source
+	- Selection Method: From all subscriptions
+	- Select storage account: *monstockageazure34*
+	- Choose Default Container: *hdinsight34 (leave default, chances are it is the same as the cluster name)*
+	- Location: North Europe
+- Node Pricing Tiers
+	- Number of Worker nodes: *3*
+	- Worker Nodes Pricing Tier: *D12*
+	- Head Node Pricing Tier: *D12*
+- Optional Configuration
+	- HDInsight Version: (leave default)
+	- Virtual Network: Not Configured
+	- External Metastores: Not Configured
+	- Script Actions: Not Configured
+	- Azure Storage Keys: 
+		- Add a storage key
+			- Access Key
+				- Storage Name: *ul001*
+				- Access Key: *fRCyNyx1aHeASX1OTXrT8L7m0sMrGuEBrNFy6XghAwNZ3vwMXx5I7w4HluQ2qQrS8Cgy5qBK1YJbhQIWNvOMdw==*
+- Pin to Startboard: checked
+- Create
+
 
 ###create a Hadoop & Spark cluster (Windows nodes)
 
@@ -149,15 +189,16 @@ please also refer to [https://azure.microsoft.com/en-us/documentation/articles/h
  
  ##Spark SQL
  
- XXX
+ (this documentation may be enhanced soon)
  
- XXX resource manager
+ On a small cluster (3 data nodes), you may want to have a ~5 million lines dataset to play with instead of the full ~ 5 billion dataset.
  
- - Thrift is used for BI tools
- 
- 
- 
- from Zeppelin:
+ Here what I would recommend: 
+ - use Hive + TEZ (cf sample scripts in this GitHub repo) scripts to get an interesting subset of the dataset
+ - from Zeppelin, use the same HIVE external tables to hack the data in a more interactive way
+ 	- the first thing you might want to do is %sql cache table mymilliontable  
+  
+ Samples in Zeppelin:
  
 	%sql 
 	cache table webs

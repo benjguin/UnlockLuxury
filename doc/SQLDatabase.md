@@ -31,7 +31,7 @@ then, you can fill the wizzard with the following values (replace values in *ita
 		- Create V12 server (Lates update): Yes *(NB, if you get an error, you can try with No)*
 		- Allow azure services to access services: checked
 	- Select source: Blank database
-	- Pricing Tier: Standard S0
+	- Pricing Tier: *Standard S3*
 	- Optional Configuration: (leave default)
 	- Resource Group: (leave default)
 	- Subscription: *(choose the ubscription or leave default value)*
@@ -82,4 +82,18 @@ To know, you can check wether the number or records in each table is still raisi
 
 ![](sqldatabase/11.png)
 
+After the import is complete, you should get those numbers: 
 
+![](sqldatabase/12.png)
+
+the script is
+
+```
+select 'Client', count(*) from Client
+union all
+select 'Segmentation', count(*) from Segmentation
+union all
+select 'Transactions', count(*) from Transactions
+union all
+select 'Voice', count(*) from Voice
+```

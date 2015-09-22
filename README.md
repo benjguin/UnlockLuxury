@@ -10,10 +10,14 @@ please refer to the doc folder for additional docs
 and also:
 
 - [Where can I get some useful tools?](doc/Tools.md)
-- [How to create and use a Linux VM on Azure?](AzureLinux.md)
+- [How to create and use a Linux VM on Azure?](doc/AzureLinux.md)
+- [How to create and use a Windows VM on Azure?](doc/AzureWindows.md)
+
+If you need to talk to somebody about Azure, join the conversation on Skype: [https://join.skype.com/kUP3bLA](https://join.skype.com/kUP3bLA).
+
 
 Here are a few additional public links: 
 
-- [How to redeem your Azure PASS](https://www.microsoftazurepass.com/howto)
 - [http://azure.com](http://azure.com)
-- [Azure managepment portal](https://portal.azure.com)
+- [Azure management portal](https://portal.azure.com)
+- [Azure SDKs, code samples (GitHub)](http://github.com/azure)

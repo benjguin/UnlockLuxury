@@ -1,6 +1,6 @@
 #Linux on Azure
 
-Here is some documentation on how to use Linux VMs hosted in Azure.
+Here is some documentation on how to create and use Linux VMs hosted in Azure.
 
 ##prepare your local environment
 
@@ -10,9 +10,11 @@ Your local environment may be MAC, Windows or Linux
 
 You can manage most of the things from the [portal](http://portal.azure.com) which works from most HTML 5 browsers.
 
-If you prefer to do everything from the command line, you can download and install the xplat-cli command line from azure.com, downloads, and search for "Azure command-line interface".
+If you prefer to do everything from the command line, you can download and install the Azure command line interface (Azure CLI) from azure.com, resources, downloads, and search for "Azure command-line interface".
 
 ###prepare your SSH key
+
+If you already have your SSH keys, you may skip this.
 
 On Windows, we'll use a bash command line prompt to generate keys and access to the VMs thru ssh. This documentation as been tested with the one provided by the [git client](http://www.git-scm.com/downloads).
 
@@ -59,3 +61,16 @@ You shoud now have the following files:
 - a public key file: john.pub
 - a certificate file: john.pem
 
+##create a Linux VM
+
+You have samples on how to create Linux VMs from the portal or from Azure CLI and bash scripts in the following GitHub repo: [https://github.com/benjguin/mongodb-on-azure-workshop](https://github.com/benjguin/mongodb-on-azure-workshop).
+
+##connect to the Linux VM
+
+You can then connect to the VM from any SSH client. 
+
+You can get the URL from the portal. It is usually `<thenameofthevm>.cloudapp.net`on port 22.
+![](azurelinux/1.png)
+
+Here is an example from the git client in Windows: 
+![](azurelinux/2.png)

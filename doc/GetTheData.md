@@ -56,6 +56,21 @@ Still, once you have the data, you can change the access key you provided.
 
 ##Access the data
 
-To see the files, you can use one of the storage explorers. Please see [Tools.md](Tools.md). 
+Azure tools like a [SQL Database](SQLDatabase.md) and a [Hadoop / Spark cluster](HDInsight.md) may be useful.
 
-You can also use a [SQL Database](SQLDatabase.md) and a [Hadoop cluster](HDInsight.md).
+The [SQL Database](SQLDatabase.md) documentation shows how to import the data in a SQL Database in your subscription:
+![](getthedata/7.png)
+
+The [HDinsight](HDInsight.md) documentation shows how to access data in Azure blob storage like the Web Analytics dataset:
+![](getthedata/8.png)
+
+
+You can see the data as files from the portal, in the *containers* blade: 
+![](getthedata/5.png)
+
+If you don't want to leverage Azure you can also download files from there:
+![](getthedata/6.png)
+
+You can also use one of the storage explorers. Please see [Tools.md](Tools.md). 
+The Azure SDKs at [http://github.com/azure](http://github.com/azure) or in the [Resources, Downloads section of http://azure.com](http://azure.microsoft.com/en-us/downloads/) contain API to access the block blobs in Azure storage. 
+
