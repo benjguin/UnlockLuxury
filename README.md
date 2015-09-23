@@ -6,6 +6,7 @@ please refer to the doc folder for additional docs
 - [How can I get the dataset?](doc/GetTheData.md)
 - [How can I create a SQL database that has the CRM dataset?](doc/SQLDatabase.md)
 - [How can I plug a Hadoop or Spark cluster on the data?](doc/HDInsight.md)
+- [How can I get started with Azure Machine Learning?](doc/AzureML.md)
 
 and also:
 
@@ -21,3 +22,4 @@ Here are a few additional public links:
 - [http://azure.com](http://azure.com)
 - [Azure management portal](https://portal.azure.com)
 - [Azure SDKs, code samples (GitHub)](http://github.com/azure)
+- [Azure Machine Learning](http://azure.com/ml)
