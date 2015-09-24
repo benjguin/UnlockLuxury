@@ -7,6 +7,8 @@ please refer to the doc folder for additional docs
 - [How can I create a SQL database that has the CRM dataset?](doc/SQLDatabase.md)
 - [How can I plug a Hadoop or Spark cluster on the data?](doc/HDInsight.md)
 - [How can I get started with Azure Machine Learning?](doc/AzureML.md)
+- [How can I create an Azure Web App with Node.js to expose my data](doc/BackendNode.md)
+- [How can I create an Azure Web App with ASP.Net to expose my data](doc/BackendAspNet.md)  
 
 and also:
 

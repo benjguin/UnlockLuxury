@@ -13,7 +13,7 @@ Go to [Azure Portal](http://portal.azure.com)
 
 New -> Web + Mobile -> Web App
 
-![](webapp/01.png)
+![](webapp/01.PNG)
 
 Once created, you can open your web app dashboard from the portal start menu :
 
@@ -90,7 +90,7 @@ As well, here is a quick tutorial on how to create a Node.js web app with Docume
 
 After completing this tutorial, you will have a ToDO list sample available :
 
-![](webapp/04.png)
+![](webapp/04.PNG)
 
 ## Connecting your Node.js web app to SQL Database
 
