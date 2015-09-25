@@ -12,8 +12,8 @@ You can use as well:
 
 I strongly suggest you to follow the tutorial described here, but if you want some quick samples, you can find starters here : 
 
-* using **Asp.Net** & **DocumentDB** to request a document node : [NOT AVAILABLE FOR THE MOMENT] [ulwebserverdb.zip](webapp/ulwebserverdb.zip)
-* using **Asp.Net** & **SqlDatabase** to request a table : [ulwebserversql.zip](webapp/ulwebserversql.zip)
+* using **Asp.Net** & **DocumentDB** to request a document node : [NOT AVAILABLE FOR THE MOMENT] [ulwebserverdb.zip](webapp/samples/ulwebserverdb.zip)
+* using **Asp.Net** & **SqlDatabase** to request a table : [ulwebserversql.zip](webapp/samples/ulwebserversql.zip)
 
 
 ## Create a web app within Azure

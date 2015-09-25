@@ -11,8 +11,8 @@ You can use as well:
 
 I strongly suggest you to follow the tutorial described here, but if you want some quick samples, you can find starters here : 
 
-* using **Node.js** & **DocumentDB** to request a document node :  [node-ulwebapi-db.zip](webapp/node-ulwebapi-db.zip)
-* using **Node.js** & **SqlDatabase** to request a table : [node-ulwebapi-sql.zip](webapp/node-ulwebapi-sql.zip)
+* using **Node.js** & **DocumentDB** to request a document node :  [node-ulwebapi-db.zip](webapp/samples/node-ulwebapi-db.zip)
+* using **Node.js** & **SqlDatabase** to request a table : [node-ulwebapi-sql.zip](webapp/samples/node-ulwebapi-sql.zip)
 
 ## Create a web app within Azure
 
