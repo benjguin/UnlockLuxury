@@ -7,6 +7,13 @@ You can use as well:
 * [Create an SQL Database](SQLDatabase.md).
 * [Create a NoSQL DocumentDB](DocumentDB.md).
 
+## In a Nutshell
+
+I strongly suggest you to follow the tutorial described here, but if you want some quick samples, you can find starters here : 
+
+* using **Node.js** & **DocumentDB** to request a document node :  [node-ulwebapi-db.zip](webapp/node-ulwebapi-db.zip)
+* using **Node.js** & **SqlDatabase** to request a table : [node-ulwebapi-sql.zip](webapp/node-ulwebapi-sql.zip)
+
 ## Create a web app within Azure
 
 Go to [Azure Portal](http://portal.azure.com)
@@ -151,6 +158,7 @@ connection.on('error', function(err) {
 	// ... error handler
 });
 ```
+
 
 
 
