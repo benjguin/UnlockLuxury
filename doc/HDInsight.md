@@ -122,7 +122,7 @@ Connect to https://*hdinsight34*.azurehdinsight.net with *cornac* and *TauTheaux
 
 ![](hdinsight/8.png)
 
-For a Linux cluster, you may want to use SSH tunelling in order to connect to all nodes inside the cluster from the browser. 
+For a Linux cluster, you may want to use SSH tunneling in order to connect to all nodes inside the cluster from the browser. 
 Please see how to do that in the [Linux page of this repo](AzureLinux.md).
 
 ###connect thru remote desktop (for command line)
