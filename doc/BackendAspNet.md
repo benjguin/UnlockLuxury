@@ -12,7 +12,7 @@ You can use as well:
 
 I strongly suggest you to follow the tutorial described here, but if you want some quick samples, you can find starters here : 
 
-* using **Asp.Net** & **DocumentDB** to request a document node : [NOT AVAILABLE FOR THE MOMENT] [ulwebserverdb.zip](webapp/samples/ulwebserverdb.zip)
+* using **Asp.Net** & **DocumentDB** to request a document node : [ulwebserverdb.zip](webapp/samples/ulwebserverdb.zip)
 * using **Asp.Net** & **SqlDatabase** to request a table : [ulwebserversql.zip](webapp/samples/ulwebserversql.zip)
 
 
@@ -87,7 +87,17 @@ Just make a search with the keyword "**documentdb**" :
 
 ![](webapp/13.png)
 
-TO BE UPDATED DURING THE WEEK
+You can also get the sample provided at the beginning of this tutorial.
+You will find every class and controller needed to get documents from you database within a web api app.
+
+Dont forget to change the web.config file and configure your own documentdb credentials :
+
+```xml
+  <appSettings>
+    <add key="EndpointUrl" value="https://ulseb.documents.azure.com:443/" />
+    <add key="AuthorizationKey" value="PjlDnmWpcr----------truncated---------------wEZINe/7q2lgaDs/5N9l7hY/w9ymKF7g==" />
+  </appSettings>
+```
 
 
 
