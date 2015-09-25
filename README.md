@@ -16,7 +16,7 @@ and also:
 - [How to create and use a Linux VM on Azure?](doc/AzureLinux.md)
 - [How to create and use a Windows VM on Azure?](doc/AzureWindows.md)
 
-If you need to talk to somebody about Azure, join the conversation on Skype: [https://join.skype.com/kUP3bLA](https://join.skype.com/kUP3bLA).
+If you need to talk to somebody about Azure, join the conversation on Skype.
 
 
 Here are a few additional public links: 
