@@ -34,7 +34,7 @@ then, you can fill the wizzard with the following values (replace values in *ita
 - Data Source
 	- Selection Method: From all subscriptions
 	- Select storage account: *monstockageazure34*
-	- Choose Default Container: *hdinsight34 (leave default, chances are it is the same as the cluster name)*
+	- Choose Default Container: *hdi34 (leave default, chances are it is the same as the cluster name)*
 	- Location: North Europe
 - Node Pricing Tiers
 	- Number of Worker nodes: *3*
@@ -53,6 +53,17 @@ then, you can fill the wizzard with the following values (replace values in *ita
 - Pin to Startboard: checked
 - Create
 
+###create a Hadoop & Spark cluster (linux nodes)
+
+You can also create a HDInsight Linux cluster with Spark installed as documented at [https://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-spark-install-linux/](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-spark-install-linux/) 
+
+An updated version of the custom script exists that deploys Spark 1.5. Its URI is
+`https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh`
+
+Basically, you use the [portal](https://portal.azure.com) as in the previous step, and you add an optional configuration with the Spark Shell. Spark has only to be deployed on the head node. It will ask YARN to deploy the rest on the data nodes.
+
+![](hdinsight/9.png)
+	 
 
 ###create a Hadoop & Spark cluster (Windows nodes)
 
@@ -110,6 +121,9 @@ then, you can fill the wizzard with the following values (replace values in *ita
 Connect to https://*hdinsight34*.azurehdinsight.net with *cornac* and *TauTheaux007!*
 
 ![](hdinsight/8.png)
+
+For a Linux cluster, you may want to use SSH tunneling in order to connect to all nodes inside the cluster from the browser. 
+Please see how to do that in the [Linux page of this repo](AzureLinux.md).
 
 ###connect thru remote desktop (for command line)
 

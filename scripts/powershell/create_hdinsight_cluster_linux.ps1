@@ -23,6 +23,7 @@ $clusterSshPassword=$b_sshPassword
 $clusterName=$b_hdiLinuxClusterName
 $clusterContainerName=$clusterName
 $resourceGroupName=$clusterName
+$location="North Europe"
 
 Select-AzureSubscription -Current -Name "$subscriptionName"
 Set-AzureSubscription -SubscriptionName $subscriptionName -CurrentStorageAccountName $storage1Name
@@ -41,6 +42,11 @@ $passwordAsSecureString=ConvertTo-SecureString $clusterAdminPassword -AsPlainTex
 $clusterCredential=New-Object System.Management.Automation.PSCredential ($clusterAdminUsername, $passwordAsSecureString)
 $passwordAsSecureString=ConvertTo-SecureString $clusterSshPassword -AsPlainText -Force
 $clusterSshCredential=New-Object System.Management.Automation.PSCredential ($clusterSshUsername, $passwordAsSecureString)
+
+if (!$(Test-AzureResourceGroup -ResourceGroupName $resourceGroupName))
+{
+    New-AzureResourceGroup -Name $resourceGroupName -Location "$location"
+}
 
 if ($createCluster)
 {
