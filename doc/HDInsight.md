@@ -34,7 +34,7 @@ then, you can fill the wizzard with the following values (replace values in *ita
 - Data Source
 	- Selection Method: From all subscriptions
 	- Select storage account: *monstockageazure34*
-	- Choose Default Container: *hdinsight34 (leave default, chances are it is the same as the cluster name)*
+	- Choose Default Container: *hdi34 (leave default, chances are it is the same as the cluster name)*
 	- Location: North Europe
 - Node Pricing Tiers
 	- Number of Worker nodes: *3*
@@ -121,6 +121,9 @@ then, you can fill the wizzard with the following values (replace values in *ita
 Connect to https://*hdinsight34*.azurehdinsight.net with *cornac* and *TauTheaux007!*
 
 ![](hdinsight/8.png)
+
+For a Linux cluster, you may want to use SSH tunelling in order to connect to all nodes inside the cluster from the browser. 
+Please see how to do that in the [Linux page of this repo](AzureLinux.md).
 
 ###connect thru remote desktop (for command line)
 

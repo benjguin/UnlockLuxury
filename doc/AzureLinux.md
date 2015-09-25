@@ -74,3 +74,69 @@ You can get the URL from the portal. It is usually `<thenameofthevm>.cloudapp.ne
 
 Here is an example from the git client in Windows: 
 ![](azurelinux/2.png)
+
+##create an SSH tunnel
+
+In some cases, you may need to open an SSH tunnel so that your laptop can access the same resources as the Linux VM you are connected to.
+One of the use cases is a [Linux HDInsight cluster](HDInsight.md).
+
+Here is a way to do it from Windows.
+
+- download Putty from [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+- You can use the .zip option and unzip everything in a folder where you'll get at least PUTTY.EXE and PUTTYGEN.EXE
+- use PUTTYGEN.EXE to save a copy of your SSH private key in putty format. For example, here is how to create john.ppk from john:
+
+![](azurelinux/3.png)
+
+![](azurelinux/4.png)
+
+![](azurelinux/5.png)
+
+![](azurelinux/6.png)
+
+![](azurelinux/7.png)
+
+![](azurelinux/8.png)
+
+![](azurelinux/9.png)
+
+Then, you use PUTTY.EXE to open a session and act as a proxy.
+For that you need to configure the session to act as an SSH tunnel. 
+PUTTY.EXE will generate a proxy that can be used by a browser that acts as if it was running from the VM you are connected to.
+
+Here is an example where I am connected to the headnode, but I need to access the rest of the nodes.
+
+![](azurelinux/10.png)
+
+Optionnaly, you may want to change the layout of the ssh terminal Window:
+
+![](azurelinux/11.png)
+
+you need to reference the .ppk file (like the john.ppk we generated earlier in this document)
+![](azurelinux/12.png)
+
+![](azurelinux/13.png)
+
+![](azurelinux/14.png)
+
+you may want to save the parameters:
+
+![](azurelinux/15.png)
+
+then you open the session 
+
+![](azurelinux/16.png)
+
+![](azurelinux/17.png)
+
+Afterwards, you configure your browser to use PUTTY.EXE as a SOCKS proxy. 
+This example is with Firefox: 
+
+![](azurelinux/18.png)
+
+Connect to the HDInsight head node, and follow links as if you were browsing from the headnode:
+
+![](azurelinux/19.png)
+
+
+![](azurelinux/20.png)
