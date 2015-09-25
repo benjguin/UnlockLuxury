@@ -22,6 +22,7 @@ $clusterRDPassword=$b_cornacRDPassword
 $clusterName=$b_hdiWindowsClusterName
 $clusterContainerName=$clusterName
 $resourceGroupName=$clusterName
+$location="North Europe"
 
 Select-AzureSubscription -Current -Name "$subscriptionName"
 Set-AzureSubscription -SubscriptionName $subscriptionName -CurrentStorageAccountName $storage1Name
@@ -41,6 +42,10 @@ $clusterCredential=New-Object System.Management.Automation.PSCredential ($cluste
 $passwordAsSecureString=ConvertTo-SecureString $clusterRDPassword -AsPlainText -Force
 $clusterRdpCredential=New-Object System.Management.Automation.PSCredential ($clusterRDUsername, $passwordAsSecureString)
 
+if (!$(Test-AzureResourceGroup -ResourceGroupName $resourceGroupName))
+{
+    New-AzureResourceGroup -Name $resourceGroupName -Location "$location"
+}
 
 if ($createCluster)
 {

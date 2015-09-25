@@ -53,6 +53,17 @@ then, you can fill the wizzard with the following values (replace values in *ita
 - Pin to Startboard: checked
 - Create
 
+###create a Hadoop & Spark cluster (linux nodes)
+
+You can also create a HDInsight Linux cluster with Spark installed as documented at [https://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-spark-install-linux/](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-spark-install-linux/) 
+
+An updated version of the custom script exists that deploys Spark 1.5. Its URI is
+`https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh`
+
+Basically, you use the [portal](https://portal.azure.com) as in the previous step, and you add an optional configuration with the Spark Shell. Spark has only to be deployed on the head node. It will ask YARN to deploy the rest on the data nodes.
+
+![](hdinsight/9.png)
+	 
 
 ###create a Hadoop & Spark cluster (Windows nodes)
 
