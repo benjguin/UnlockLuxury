@@ -14,17 +14,21 @@ and ask for the data on another container (ex: lvdata2). The storage account can
 
 Here is the new dataset description. In the container, you'll find the following:
 
+
+
 folder | new in update 1 |description
------|-:-|-------------
-crm |Y|The CRM data as 4 files, uncompressed
-crmgz|N|the CRM data as 4 files, compressed
-crmsqldb|N|the CRM data as a dehydrated [SQL database](SQLDatabase.md)
-tweets|Y|The raw tweets, uncompressed
-tweetsgz|N|The raw tweets, compressed
-tweetstsv|Y|the tweets, filtered (cf explanation below), as TSV files, uncompressed
-web-clientid|Y|the Web Analytics data with the ClientId as the last column, uncompressed
-web-clientid-gz|Y|the Web Analytics data with the ClientId as the last column, compressed
-webgz|N|the Web Analytics without the clientId column, compressed
+:------|--------:--------|:-------------
+crm | Y | The CRM data as 4 files, uncompressed
+crmgz | N | the CRM data as 4 files, compressed
+crmsqldb | N | the CRM data as a dehydrated SQL database
+tweets | Y | The raw tweets, uncompressed
+tweetsgz | N | The raw tweets, compressed
+tweetstsv | Y | the tweets, filtered (cf explanation below), as TSV files, uncompressed
+web-clientid | Y | the Web Analytics data with the ClientId as the last column, uncompressed
+web-clientid-gz | Y | the Web Analytics data with the ClientId as the last column, compressed
+webgz | N | the Web Analytics without the clientId column, compressed
+
+
 
 ##tweetstsv
 
