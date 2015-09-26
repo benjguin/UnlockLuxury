@@ -17,7 +17,7 @@ Here is the new dataset description. In the container, you'll find the following
 
 
 folder | new in update 1 |description
-:------|--------:--------|:-------------
+------|---------------|-------------
 crm | Y | The CRM data as 4 files, uncompressed
 crmgz | N | the CRM data as 4 files, compressed
 crmsqldb | N | the CRM data as a dehydrated SQL database
