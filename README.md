@@ -25,3 +25,5 @@ Here are a few additional public links:
 - [Azure management portal](https://portal.azure.com)
 - [Azure SDKs, code samples (GitHub)](http://github.com/azure)
 - [Azure Machine Learning](http://azure.com/ml)
+- **MUST READ** : [Azure Machine Learning : Apprentissage automatisé](http://blogs.msdn.com/b/mlfrance/archive/2015/06/24/azure-machine-learning-et-python-apprentissage-r-233-gulier-et-automatis-233-avec-scikit-learn.aspx) 
+- [Project Oxford : Facial recognition](http://blogs.msdn.com/b/mlfrance/archive/2015/08/04/projet-oxford-la-reconnaissance-faciale-224-port-233-e-de-main-et-plus-encore.aspx)
