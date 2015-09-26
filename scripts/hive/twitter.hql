@@ -11,30 +11,22 @@ drop table twitter_tags_count_100;
 drop table twitter_tags_user_location_count;
 drop table twitter_tags_user_location_count_100;
 
-create external table IF NOT EXISTS raw_tweets ( json_response string ) partitioned by (dt string) stored as textfile;
-alter table raw_tweets add if not exists partition(dt='2013-03-06') location 'wasb://demo@monstockageazure.blob.core.windows.net/data/socialvilles/2013-3-6';
-alter table raw_tweets add if not exists partition(dt='2013-03-07') location 'wasb://demo@monstockageazure.blob.core.windows.net/data/socialvilles/2013-3-7';
-alter table raw_tweets add if not exists partition(dt='2013-03-08') location 'wasb://demo@monstockageazure.blob.core.windows.net/data/socialvilles/2013-3-8';
-alter table raw_tweets add if not exists partition(dt='2013-03-09') location 'wasb://demo@monstockageazure.blob.core.windows.net/data/socialvilles/2013-3-9';
-alter table raw_tweets add if not exists partition(dt='2013-03-10') location 'wasb://demo@monstockageazure.blob.core.windows.net/data/socialvilles/2013-3-10';
-alter table raw_tweets add if not exists partition(dt='2013-03-11') location 'wasb://demo@monstockageazure.blob.core.windows.net/data/socialvilles/2013-3-11';
-alter table raw_tweets add if not exists partition(dt='2013-03-12') location 'wasb://demo@monstockageazure.blob.core.windows.net/data/socialvilles/2013-3-12';
+drop table raw_tweets;
+create external table IF NOT EXISTS raw_tweets ( json_response string )  stored as textfile
+location 'wasb://lvdata@{storageaccount}.blob.core.windows.net/tweets';
 
 create external table IF NOT EXISTS tweets2 (
 	id string,
 	lang string,
 	json_response string)
-partitioned by (dt string)
 row format delimited fields terminated by '\t' lines terminated by '\n' stored as textfile 
 location '/wasbwork/tweets2';
 
 insert overwrite table tweets2
-partition (dt)
 select 
 	get_json_object(json_response, '$.id_str') as id,
 	get_json_object(json_response, '$.user.lang') as lang,
-	json_response, 
-	dt
+	json_response
 	FROM raw_tweets
 	where (length(json_response) > 500);
 
@@ -70,12 +62,10 @@ create external table IF NOT EXISTS tweet_details
 	hashtags array<string>,
 	user_mentions array<string>
 )
-partitioned by (dt string)
 row format delimited fields terminated by '\t' lines terminated by '\n' stored as textfile 
 location '/wasbwork/tweet_details';
 
 insert overwrite table tweet_details
-partition (dt)
 select
 	get_json_object(json_response, '$.id_str') as id,
 	get_json_object(json_response, '$.created_at') as created_at,
@@ -138,8 +128,7 @@ select
 		trim(lower(get_json_object(json_response, '$.entities.user_mentions[6].screen_name'))),
 		trim(lower(get_json_object(json_response, '$.entities.user_mentions[7].screen_name'))),
 		trim(lower(get_json_object(json_response, '$.entities.user_mentions[8].screen_name'))),
-		trim(lower(get_json_object(json_response, '$.entities.user_mentions[9].screen_name')))) as user_mentions,
-	dt
+		trim(lower(get_json_object(json_response, '$.entities.user_mentions[9].screen_name')))) as user_mentions
 from tweets2
 where lang='fr'
 	and coalesce(id, 'X') RLIKE '^[0-9]+$'
@@ -160,20 +149,17 @@ select id,
 
 create external table IF NOT EXISTS twitter_tags_user_location
 (id string, tag string, user_location string)
-partitioned by (dt string)
 row format delimited fields terminated by '\t' lines terminated by '\n' stored as textfile 
 location '/wasbwork/twitter_tags_user_location';
 
 insert overwrite table twitter_tags_user_location
-partition (dt)
 select id, 
 	tag, 
 	trim(regexp_replace(
 		regexp_replace(upper(user_location), 
 		"FRANCE", ""), 
 			"[^a-zA-Z]", 
-			"")) as user_location, 
-	dt
+			"")) as user_location
 	from tweet_details
 	LATERAL VIEW explode(hashtags) tagTable as tag 
 where length(coalesce(tag,"")) > 0;
@@ -233,12 +219,10 @@ drop table twitter_tags_user_location_dt_hh_count;
 
 create external table IF NOT EXISTS twitter_tags_user_location_dt_hh
 (id string, tag string, user_location string, hh string)
-partitioned by (dt string)
 row format delimited fields terminated by '\t' lines terminated by '\n' stored as textfile 
 location '/wasbwork/twitter_tags_user_location_dt_hh';
 
 insert overwrite table twitter_tags_user_location_dt_hh
-partition (dt)
 select id, 
 	tag, 
 	trim(regexp_replace(
@@ -246,18 +230,17 @@ select id,
 		"FRANCE", ""), 
 			"[^a-zA-Z]", 
 			"")) as user_location, 
-	substr(created_at_time, 1, 2) as hh,
-	dt
+	substr(created_at_time, 1, 2) as hh
 	from tweet_details
 	LATERAL VIEW explode(hashtags) tagTable as tag 
 where length(coalesce(tag,"")) > 0;
 
 create external table IF NOT EXISTS twitter_tags_user_location_dt_hh_count
-(id string, tag string, user_location string, dt string, hh string)
+(id string, tag string, user_location string, hh string)
 row format delimited fields terminated by '\t' lines terminated by '\n' stored as textfile 
 location '/wasbwork/twitter_tags_user_location_dt_hh_count';
 
 insert overwrite table twitter_tags_user_location_dt_hh_count
-select tag, user_location, dt, hh, count(distinct id) as nb_tweets
+select tag, user_location, hh, count(distinct id) as nb_tweets
 	from twitter_tags_user_location_dt_hh
-	group by tag, user_location, dt, hh;
+	group by tag, user_location, hh;
