@@ -47,5 +47,8 @@ You can create an *organizational account* from [https://manage.windowsazure.com
 There's a list of Azure storage explorers [here](https://go.microsoft.com/fwLink/?LinkID=296841&clcid=0x409)
 ![](tools/4.png)
 
+[zud.io](http://zud.io) has an online tool to manage blob storage.
+![](tools/6.png)
+
 There's also a command line tool, [azCopy](http://aka.ms/AzCopy).
 ![](tools/3.png)
